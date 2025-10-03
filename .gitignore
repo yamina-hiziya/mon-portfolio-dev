@@ -1,0 +1,9 @@
+# Fichiers de configuration ou temporaires
+.DS_Store
+.vscode/
+
+# Fichiers d'images volumineux qui pourraient être mieux gérés autrement
+# (Vous pouvez commenter ces lignes si vous voulez que vos images soient incluses)
+# *.png
+# *.jpg
+# *.svg

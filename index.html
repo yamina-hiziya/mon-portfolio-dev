@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio de Développeur - BENABDELMOUMENE Yamina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+
+            <a href="https://github.com/yamina-hiziya" target="_blank" class="nav-logo">
+                <i class="fab fa-github"></i>
+                <span>yamina-hiziya</span>
+            </a>
+
+            <button class="burger-menu" aria-label="Ouvrir le menu de navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#workflow">Processus</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact" class="cta-nav">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>BENZENATI Yamina</h1>
+            <h2>Développeur Web Full-Stack</h2>
+            <p>Créateur de solutions web performantes et élégantes.</p>
+            <a href="#projets" class="cta-button">Voir mes Projets</a>
+        </div>
+    </header>
+
+    <section id="about" class="about-me fade-in-section">
+        <div class="container">
+            <div class="profile-image-container">
+                <img src="image/a propos de moi.png" alt="Votre photo de profil">
+            </div>
+            <h3>À Propos de Moi</h3>
+            <p>Passionné par l'informatique depuis mon plus jeune âge, mon objectif est de transformer les idées
+                complexes en applications conviviales et fonctionnelles. En Formation Développeur Web Flutter chez Studi
+                depuis novembre 2024, j'ai acquis des compétences solides en développement front-end et back-end, ainsi
+                qu'une
+                compréhension approfondie des bases de données et des outils de versioning. Je suis constamment à
+                l'affût des dernières tendances technologiques pour offrir des solutions innovantes et efficaces.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/yamina-hiziya" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/yamina-benabdelmoumene-9a6b6a334" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills fade-in-section">
+        <div class="container">
+            <h3>Compétences Techniques</h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="html-bar" data-level="90"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="html-bar" data-level="90"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-js"></i>
+                    <span>JavaScript</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="html-bar" data-level="60"></div>
+                    </div>
+                </div>
+                <div class="skill-item" data-level="75" data-color="#4479A1">
+                    <i class="fas fa-database"></i>
+                    <span>MySQL</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="html-bar" data-level="60"></div>
+                    </div>
+                </div>
+                <div class="skill-item" data-level="85" data-color="#777BB4">
+                    <i class="fab fa-php"></i>
+                    <span>PHP</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="html-bar" data-level="60"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-docker"></i>
+                    <span>Docker</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="html-bar" data-level="50"></div>
+                    </div>
+                </div>
+                <div class="skill-item" data-level="80" data-color="#F1502F">
+                    <i class="fab fa-git-alt"></i>
+                    <span>Git & GitHub</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="html-bar" data-level="60"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-code"></i>
+                    <span>TypeScript</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="html-bar" data-level="20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="workflow" class="workflow fade-in-section">
+        <div class="container">
+            <h3>Mon Processus de Travail</h3>
+            <p class="workflow-intro">
+                Chaque projet est une opportunité de construire quelque chose de solide et d'efficace. Voici les étapes
+                que je suis pour garantir la réussite et la qualité.
+            </p>
+
+            <div class="workflow-steps">
+
+                <div class="workflow-step-item">
+                    <img src="image/ideas-image.jpg" alt="Icône d'idéation" class="workflow-icon-img">
+                    <h4>1. Idéation & Planification</h4>
+                    <p>Comprendre le besoin, définir les objectifs et les user stories. Réflexion sur l'architecture
+                        technique et les outils.</p>
+                </div>
+
+                <div class="workflow-step-item">
+                    <img src="image/web-design.jpg" alt="Icône de conception" class="workflow-icon-img">
+                    <h4>2. Conception & Maquettage</h4>
+                    <p>Création de wireframes et de maquettes (UI/UX) pour visualiser la solution et valider les
+                        parcours utilisateurs.</p>
+                </div>
+
+                <div class="workflow-step-item">
+                    <img src="image/dev.jpg" alt="Icône de développement" class="workflow-icon-img">
+                    <h4>3. Développement Agile</h4>
+                    <p>Développement itératif et incrémental, avec des sprints courts et des revues régulières pour
+                        s'adapter et optimiser.</p>
+                </div>
+
+                <div class="workflow-step-item">
+                    <img src="image/programming.jpg" alt="Icône de tests" class="workflow-icon-img">
+                    <h4>4. Tests & Qualité</h4>
+                    <p>Mise en place de tests unitaires, d'intégration et end-to-end. Revue de code et correction des
+                        bugs pour une robustesse maximale.</p>
+                </div>
+
+                <div class="workflow-step-item">
+                    <img src="image/deploie.jpg" alt="Icône de déploiement" class="workflow-icon-img">
+                    <h4>5. Déploiement & Suivi</h4>
+                    <p>Déploiement en production, suivi des performances et maintenance continue pour assurer la
+                        stabilité et l'évolutivité.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="projets fade-in-section">
+        <div class="container">
+            <h3>Mes Réalisations</h3>
+            <article class="project-card">
+                <div class="project-details">
+                    <h4>ECORIDE</h4>
+                    <p>Site de covoiturage éco-responsable.</p>
+                    <p class="technologies"><span>PHP</span><span>SQL</span><span>MongoDB</span></p>
+                </div>
+                <div class="project-logo-circle">
+                    <img src="image/logo2.png" alt="Logo du projet ECORIDE">
+                </div>
+            </article>
+        </div>
+        <div class="container">
+            <article class="project-card">
+                <div class="project-details">
+                    <h4>Mon portfolio</h4>
+                    <p>Site de présentation de mes projets et compétences.</p>
+                    <p class="technologies"><span>HTML</span><span>CSS</span><span>JavaScript</span></p>
+                </div>
+                <div class="project-logo-circle">
+                    <img src="image/portfolio-logo.png" alt="Mon Portfolio" class="logo-portfolio-fix">
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer id="contact" class="contact fade-in-section">
+        <div class="container">
+            <h3>Me Contacter</h3>
+            <p class="contact-intro">
+                Intéressé par mon profil ou un projet ? Envoyez-moi un message, ou connectons-nous !
+            </p>
+
+            <form class="contact-form" action="[Lien vers votre service de formulaire]" method="POST">
+
+                <div class="form-group">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" required placeholder="Votre nom complet">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required placeholder="votre.email@domaine.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="5" required
+                        placeholder="Décrivez votre projet ou votre demande..."></textarea>
+                </div>
+
+                <button type="submit" class="cta-button submit-button">
+                    Envoyer le Message
+                </button>
+            </form>
+
+            <div class="footer-bottom">
+                <p>Email direct : benhiziya7@gmail.com</p>
+                <p>&copy; 2025 BENZENATI. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+
+</html>

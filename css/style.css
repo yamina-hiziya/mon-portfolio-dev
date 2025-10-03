@@ -1,0 +1,793 @@
+/* ========================================= */
+/* 1. RÉINITIALISATION ET STYLES DE BASE      */
+/* ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Couleurs principales */
+    --color-primary: #00bcd4; /*  Cyan/Turquoise (Accentuation) */
+    --color-secondary: #222; /* Noir presque noir (Texte principal) */
+    --color-background: #fff; /* Fond clair */
+    --color-light-gray: #f4f4f9; /* Fond des sections alternées */
+    --color-white: #fff;
+    --font-main: sans-serif;
+    --font-heading: 'Roboto Slab', serif; /* Pour les titres */
+    --font-body: 'Montserrat', sans-serif; /* Pour le texte principal */
+}
+
+body {
+    font-family: var(--font-body); /* Appliquer la police du corps */
+    line-height: 1.6;
+    background-color: var(--color-background);
+    color: var(--color-secondary);
+    scroll-behavior: smooth; /* Défilement fluide pour les ancres */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading); /* la police des titres */
+}
+
+h2, h3 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    font-weight: 700; /* titres plus gras */
+    text-transform: uppercase; /* plus percutant */
+    letter-spacing: 2px;
+    color: var(--color-secondary);
+}
+
+/* Style des liens et boutons CTA */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0097a7; /* Cyan de Contraste */
+}
+/* ========================================= */
+/* 2. NAVIGATION (NAVBAR) ET FLEXBOX         */
+/* ========================================= */
+.navbar {
+    background-color: var(--color-secondary); /* Fond noir */
+    padding: 15px 0;
+    position: fixed; /* Fixe la barre en haut de l'écran */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Assure que la nav est au-dessus du reste */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between; /* Espace le logo des liens */
+    align-items: center;
+}
+
+/* --- Style du Logo GitHub --- */
+.nav-logo {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo i {
+    font-size: 1.2em;
+    color: var(--color-primary); /* Couleur d'accentuation */
+    margin-right: 10px;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-logo:hover i {
+    transform: rotate(10deg) scale(1.1); /* Petite animation de rotation au survol */
+}
+
+/* --- Style des Liens de Navigation --- */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary); /* Changement de couleur au survol */
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/* Style du lien Contact (CTA dans la Nav) */
+.cta-nav {
+    color: var(--color-primary) !important;
+    font-weight: bold;
+    border-bottom: none !important;
+}
+
+.cta-nav:hover {
+    color: var(--color-white) !important;
+    background-color: #00bcd4;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+/* --- Styles pour le Bouton Burger --- */
+.burger-menu {
+    display: none; /* Masqué par défaut sur grand écran */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: var(--color-primary); /* Couleur Cyan */
+    z-index: 1001; /* Assure qu'il est cliquable */
+}
+
+/* --- Masquer le menu sur mobile par défaut --- */
+/* Pour que le menu burger fonctionne, modification style des liens dans les Media Queries */
+/* ========================================= */
+/* 3. EN-TÊTE (HEADER/HERO)                 */
+/* ========================================= */
+.hero {
+    background: linear-gradient(to bottom, #222 0%, #333 100%);
+    color: var(--color-white);
+    padding: 150px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 5px;
+}
+
+.hero h2 {
+    font-size: 1.5em;
+    color: var(--color-primary); /* Accentuation du titre */
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.1em;
+    color: #bbb;
+}
+
+/* ========================================= */
+/* 4. À PROPOS DE MOI ET LIENS SOCIAUX      */
+/* ========================================= */
+.about-me {
+    background-color: var(--color-background);
+    text-align: center;
+}
+
+.about-me p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.1em;
+}
+
+.social-links a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-secondary);
+}
+.profile-image-container {
+    width: 240px; /* Taille du cercle */
+    height: 240px;
+    margin: 0 auto 40px; /* Centrer et espacer du texte */
+    border-radius: 50%; /* Rend l'image ronde */
+    overflow: hidden; /* Cache les bords si l'image dépasse */
+    border: 4px solid var(--color-primary); /* Bordure Cyan */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex; /* Pour centrer l'image à l'intérieur */
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadre l'image pour qu'elle remplisse le cercle */
+    object-position: center; /* Centrer l'image */
+}
+/* ========================================= */
+/* 5. COMPÉTENCES ET ANIMATIONS (LOGOS)     */
+/* ========================================= */
+.skills {
+    background-color: var(--color-light-gray);
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Augmenter l'espace entre les cartes */
+    gap: 40px 60px; 
+    margin-top: 40px;
+}
+
+.skill-item {
+    background-color: var(--color-white);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 30px; /* Augmenter le padding */
+    text-align: center;
+    
+    /* 💥 MODIFICATION CLÉ : Fixer la largeur pour 2 colonnes */
+    width: 280px; 
+    height: 250px; /* Augmenter la hauteur de la carte */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Mieux répartir l'espace */
+    justify-content: space-around; 
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+    /* Transition pour l'animation au survol */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.progress-bar-container {
+    width: 100%;
+    /* Rendre la barre plus épaisse */
+    height: 15px; 
+    background-color: #eee; 
+    border-radius: 8px;
+    margin-top: 20px;
+    overflow: hidden; 
+}
+.progress-bar {
+    height: 100%;
+    width: 0; /* Commence à zéro pour l'animation */
+    background-color: var(--color-primary); /* Utilise la couleur Cyan */
+    border-radius: 5px;
+    
+    /* Transition pour l'animation visuelle */
+    transition: width 1.5s ease-out; 
+}
+
+/* Effet de "saut" au survol */
+
+.skill-item:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+}
+
+.skill-item i {
+    /* 💥 Augmenter la taille des icônes */
+    font-size: 4.5em; 
+    margin-bottom: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.skill-item:hover i {
+    opacity: 0.8; /* Légère atténuation au survol */
+}
+
+.skill-item span {
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+/* --- Couleurs Officielles des Technologies --- */
+
+.fa-html5 { color: #e34c26; } /* Orange */
+.fa-css3-alt { color: #264de4; } /* Bleu */
+.fa-js { color: #f7df1e; } /* Jaune */
+.fa-react { color: #61dafb; } /* Bleu Ciel */
+.fa-vuejs { color: #4fc08d; } /* Vert Vue */
+.fa-node-js { color: #68a063; } /* Vert Node */
+.fa-python { color: #3776ab; } /* Bleu Python */
+.fa-php { color: #777bb4; } /* Violet PHP */
+.fa-git-alt { color: #f1502f; } /* Git Orange */
+.fa-docker { color: #2496ed; } /* Bleu Docker */
+.fa-database { color: #4479A1; } /* Gris foncé pour les bases de données génériques */
+
+
+/* ========================================= */
+/* 6. PROJETS ET RÉALISATIONS               */
+/* ========================================= */
+.projets {
+    background-color: var(--color-background);
+}
+
+.project-card {
+    display: flex;
+    align-items: center; /* Centrer verticalement le contenu et le logo */
+    gap: 40px; 
+    
+    background-color: var(--color-white); 
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    min-height: 250px;
+    
+    /* 💥 MODIFICATION CLÉ : Inverser l'ordre des éléments Flexbox */
+    flex-direction: row-reverse; /* Met le logo à droite, le texte à gauche */
+}
+
+
+.project-card:hover {
+    transform: translateY(-8px); /* Fait "sauter" la carte un peu plus haut */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Ombre plus intense au survol */
+}
+
+.project-details {
+    width: 60%; /* Le texte prend 60% de la largeur */
+
+}
+
+.project-card h4 {
+    color: var(--color-secondary);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    
+    border-left: 4px solid var(--color-primary); /* Ligne Cyan à gauche */
+    padding-left: 10px;
+}
+
+.project-card .technologies {
+    margin: 15px 0;
+    /* Utilisation des technologies pour la liste */
+    font-style: normal;
+    font-size: 0.9em;
+    color: var(--color-secondary);
+}
+
+.project-card .technologies span {
+    display: inline-block;
+    background-color: var(--color-light-gray); /* Fond de badge */
+    color: #555;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-right: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+}
+
+.project-link {
+    display: inline-block;
+    /* Transformation en boutons discrets */
+    background-color: var(--color-primary); 
+    color: var(--color-white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 15px;
+    margin-top: 10px; /* Ajoute un petit espace */
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.project-link:hover {
+    /* Assombrir le fond au survol */
+    background-color: #0097a7; 
+    color: var(--color-white); 
+    transform: translateY(-2px); /* Léger soulèvement au survol */
+}
+/*  Le Cercle du Logo du Projet */
+.project-logo-circle {
+    width: 150px; 
+    height: 150px;
+    flex-shrink: 0; 
+    
+    background-color: var(--color-primary); 
+    border-radius: 50%; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+    
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    
+    padding: 0px; /* padding est à 0 pour laisser l'image s'exprimer */
+    overflow: hidden; /* S'assure que ce qui dépasse est caché, si le scale n'est pas parfait */
+    transition: transform 0.3s ease;
+}
+
+.project-logo-circle:hover {
+    transform: scale(1.05); /* Zoom léger au survol */
+}
+
+.project-logo-circle img {
+    /*  Permettre à l'image de prendre 100% */
+    width: 100%; 
+    height: 100%;
+    
+    /* 'contain' solution pour éviter la déformation */
+    object-fit: contain; 
+    object-position: center; 
+    display: block;
+    transform: scale(1.2); 
+    transition: transform 0.3s ease; 
+}
+
+/* Effet au survol pour le logo */
+.project-logo-circle:hover img {
+    transform: scale(1.2); /* Revient à 100% de taille au survol */
+}
+.logo-portfolio-fix {
+    /* Réduit l'échelle pour éviter l'étirement */
+    transform: scale(0.9); 
+}
+
+/* ========================================= */
+/* 7. PIED DE PAGE (CONTACT)                */
+/* ========================================= */
+.contact {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 50px 0;
+}
+
+.contact p {
+    font-size: 1.1em;
+}
+/* ========================================= */
+/* 7. PIED DE PAGE (CONTACT) - (Ajustements) */
+/* ========================================= */
+.contact {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 50px 0;
+}
+
+.contact-intro {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    color: #ccc;
+}
+
+.contact h3 {
+    color: var(--color-white); /* Titre en blanc dans la section sombre */
+}
+
+/* --- Styles du Formulaire --- */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left; /* Alignement des labels à gauche */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-primary); /* Accentuation des labels */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444; /* Bordure foncée */
+    border-radius: 6px;
+    background-color: #333; /* Champ en gris très foncé */
+    color: var(--color-white); /* Texte blanc dans le champ */
+    font-family: var(--font-body);
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-primary); /* Bordure Cyan au focus */
+    outline: none; /* Supprime l'outline par défaut du navigateur */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Empêche le redimensionnement horizontal */
+}
+
+.submit-button {
+    /* Le bouton reprend le style .cta-button, mais on l'aligne au centre/à gauche */
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 15px 0;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+}
+
+.footer-bottom p {
+    font-size: 0.9em;
+    color: #999;
+}
+
+/* ========================================= */
+/* 8. MÉDIA QUERIES (RESPONSIVE)            */
+/* ========================================= */
+
+    @media (max-width: 768px) {
+    /* Afficher le burger et masquer les liens par défaut */
+    .burger-menu {
+        display: block; /* Affiche le bouton burger */
+    }
+
+    .nav-links {
+        display: none; /* Masque la liste de liens par défaut */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Commence sous la navbar fixe */
+        left: 0;
+        background-color: var(--color-secondary); /* Fond noir comme la navbar */
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #333; /* Séparateur subtil */
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    /* Classe JavaScript pour afficher le menu */
+    .nav-links.active {
+        display: flex; /* Affiche le menu lorsque la classe 'active' est ajoutée */
+    }
+
+    /* Réaligner le contenu de la nav pour laisser de la place au burger */
+    .nav-content {
+        justify-content: space-between; 
+    }
+    .profile-image-container {
+        /* 💥 Réduire sur mobile pour ne pas prendre trop de place */
+        width: 160px; 
+        height: 160px;
+        margin-top: 20px;
+    }
+    
+    .project-card {
+        flex-direction: column; /* Les éléments s'empilent sur mobile */
+    }
+    /* Ajuster l'ordre pour mobile si le logo doit être au-dessus */
+    .project-logo-circle {
+        order: -1; /* Place le logo au-dessus du texte sur mobile */
+        margin-bottom: 20px; /* Espace sous le logo */
+        width: 120px; /* Plus petit sur mobile */
+        height: 120px;
+    }
+    .hero {
+        padding: 100px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    h2, h3 {
+        font-size: 2em;
+    }
+    
+    .project-card {
+        flex-direction: column; /* Empile l'image et le texte sur mobile */
+    }
+
+    .project-image-placeholder, .project-details {
+        width: 100%;
+        min-width: initial;
+    }
+
+    .skill-item {
+        /* Revenir à une colonne unique sur mobile */
+        width: 80%; /* Prend 80% de la largeur du viewport */
+        height: 200px;
+        padding: 20px;
+    }
+
+    .skills-grid {
+        gap: 30px 0; /* Pas d'espace horizontal */
+    }
+    
+    .skill-item i {
+        font-size: 3.5em;
+    }
+}
+
+/* ========================================= */
+/* 9. SCROLL ANIMATIONS                      */
+/* ========================================= */
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px); /* L'élément commence 20px plus bas */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Durée de l'animation */
+    will-change: opacity, transform; /* Aide les navigateurs à optimiser l'animation */
+}
+
+/* État final : Visible */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0); /* L'élément revient à sa position normale */
+}
+
+/* ========================================= */
+/* 10. PROCESSUS DE TRAVAIL                 */
+/* ========================================= */
+.workflow {
+    background-color: var(--color-background);
+}
+
+.workflow-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+.workflow-steps {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux étapes de passer à la ligne */
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.workflow-step-item {
+    background-color: var(--color-light-gray);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    max-width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workflow-step-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.workflow-step-item .workflow-icon-img {
+    width: 100px; /* Augmenter légèrement la taille pour un meilleur effet */
+    height: 100px; /* Doit être égale à la largeur pour un cercle parfait */
+    
+    object-fit: cover; /* Recadre l'image pour remplir le cercle sans déformation */
+    object-position: center; /* S'assure que le centre de l'image est visible */
+    
+    border-radius: 50%; /* 💥 REND L'IMAGE RONDE */
+    border: 3px solid var(--color-primary); /* Ajouter une petite bordure Cyan */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Ombre pour donner du relief */
+    
+    margin-bottom: 20px;
+}
+
+.workflow-step-item h4 {
+    font-size: 1.3em;
+    color: var(--color-secondary);
+    margin-bottom: 15px;
+}
+
+.workflow-step-item p {
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Responsive pour les étapes de travail */
+@media (max-width: 768px) {
+    .workflow-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .workflow-step-item {
+        max-width: 90%; /* Pour qu'elles prennent plus de place sur mobile */
+    }
+}
+
+/* ========================================= */
+/* 11. PAGE 404 PERSONNALISÉE                */
+/* ========================================= */
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    background-color: var(--color-secondary); /* Fond noir */
+    color: var(--color-white);
+    text-align: center;
+    padding: 20px;
+}
+
+.error-container h1 {
+    font-size: 8em; /* Très grand 404 */
+    color: var(--color-primary); /* Couleur d'accentuation */
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.error-container h2 {
+    font-size: 2.5em;
+    color: var(--color-white);
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-transform: none; /* Pas d'uppercase ici */
+    letter-spacing: normal;
+}
+
+.error-container p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    max-width: 600px;
+}
+
+.error-container .cta-button {
+    margin-top: 40px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+}
+
+/* --- Animation Astronaute (pour le fun !) --- */
+.astronaut-animation {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://i.ibb.co/L5rK3B3/astronaut.png'); 
+    background-repeat: no-repeat;
+    margin: 30px 0;
+    animation: float 4s ease-in-out infinite; /* Animation de flottement */
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
