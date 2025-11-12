@@ -1,9 +1,13 @@
-# Fichiers de configuration ou temporaires
+# Fichiers de configuration et temporaires
 .DS_Store
 .vscode/
 
-# Fichiers d'images volumineux qui pourraient être mieux gérés autrement
-# (Vous pouvez commenter ces lignes si vous voulez que vos images soient incluses)
+# IGNORER TOUTES LES IMAGES DANS LE DOSSIER 'images'
+# Si votre dossier est 'image' (singulier)
+image/*
+# Si votre dossier est 'images' (pluriel)
+images/*
+
+# Alternativement, ignorer tous les PNG et JPG, quel que soit leur emplacement
 # *.png
 # *.jpg
-# *.svg
