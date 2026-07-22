@@ -158,88 +158,127 @@ h2, h3 {
 /* --- Masquer le menu sur mobile par défaut --- */
 /* Pour que le menu burger fonctionne, modification style des liens dans les Media Queries */
 /* ========================================= */
-/* 3. EN-TÊTE (HEADER/HERO)                 */
+/* 3. EN-TÊTE (HEADER/HERO)   
+/* 4. À PROPOS DE MOI ET LIENS SOCIAUX                */
 /* ========================================= */
-.hero {
-    background: linear-gradient(to bottom, #222 0%, #333 100%);
+.hero-split {
+    position: relative;
+    background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     color: var(--color-white);
-    padding: 150px 20px;
-    text-align: center;
+    padding: 160px 0 100px;
+    overflow: hidden;
 }
 
-.hero h1 {
-    font-size: 3.5em;
-    margin-bottom: 5px;
+.hero-bg-shape {
+    position: absolute;
+    top: -100px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0,188,212,0.35) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(20px);
+    z-index: 0;
 }
 
-.hero h2 {
-    font-size: 1.5em;
-    color: var(--color-primary); /* Accentuation du titre */
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 1.1em;
-    color: #bbb;
-}
-
-/* ========================================= */
-/* 4. À PROPOS DE MOI ET LIENS SOCIAUX      */
-/* ========================================= */
-.about-me {
-    background-color: var(--color-background);
-    text-align: center;
-}
-
-.about-me p {
-    max-width: 700px;
-    margin: 0 auto 30px;
-    font-size: 1.1em;
-}
-
-.social-links a {
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0 15px;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--color-secondary);
-}
-.profile-image-container {
-    width: 240px; /* Taille du cercle */
-    height: 240px;
-    margin: 0 auto 40px; /* Centrer et espacer du texte */
-    border-radius: 50%; /* Rend l'image ronde */
-    overflow: hidden; /* Cache les bords si l'image dépasse */
-    border: 4px solid var(--color-primary); /* Bordure Cyan */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    display: flex; /* Pour centrer l'image à l'intérieur */
+.hero-split-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 1 1 480px;
+}
+
+.hero-tag {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.hero-text h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-desc {
+    color: #bbb;
+    font-size: 1.05em;
+    max-width: 460px;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.hero-actions .cta-button {
+    margin-top: 0;
+}
+
+.hero-actions .social-links a {
+    color: var(--color-white);
+    font-size: 1.4em;
+    margin: 0 8px 0 0;
+}
+
+.hero-actions .social-links a:hover {
+    color: var(--color-primary);
+}
+
+.hero-image {
+    flex: 0 0 300px;
+    display: flex;
     justify-content: center;
 }
 
-.profile-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Recadre l'image pour qu'elle remplisse le cercle */
-    object-position: center; /* Centrer l'image */
+.hero-image img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--color-primary);
+    box-shadow: 0 0 40px rgba(0, 188, 212, 0.4);
+}
+
+
+@media (max-width: 850px) {
+    .hero-split-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .hero-desc { margin: 0 auto 30px; }
+    .hero-actions { justify-content: center; }
 }
 /* ========================================= */
 /* 5. COMPÉTENCES ET ANIMATIONS (LOGOS)     */
 /* ========================================= */
 .skills {
     background-color: var(--color-light-gray);
+    clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
+    padding: 100px 0 110px; /* un peu plus de marge verticale pour compenser le clip-path */
+    margin: -30px 0;
+    position: relative;
+    z-index: 1;
 }
 
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* Augmenter l'espace entre les cartes */
-    gap: 40px 60px; 
+    gap: 40px 60px;
     margin-top: 40px;
 }
 
@@ -247,59 +286,30 @@ h2, h3 {
     background-color: var(--color-white);
     border: 1px solid #ddd;
     border-radius: 10px;
-    padding: 30px; /* Augmenter le padding */
+    padding: 30px;
     text-align: center;
-    
-    /* 💥 MODIFICATION CLÉ : Fixer la largeur pour 2 colonnes */
-    width: 280px; 
-    height: 250px; /* Augmenter la hauteur de la carte */
-    
+    width: 280px;
+    height: 260px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Mieux répartir l'espace */
-    justify-content: space-around; 
-    
+    justify-content: space-around;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-
-    /* Transition pour l'animation au survol */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-.progress-bar-container {
-    width: 100%;
-    /* Rendre la barre plus épaisse */
-    height: 15px; 
-    background-color: #eee; 
-    border-radius: 8px;
-    margin-top: 20px;
-    overflow: hidden; 
-}
-.progress-bar {
-    height: 100%;
-    width: 0; /* Commence à zéro pour l'animation */
-    background-color: var(--color-primary); /* Utilise la couleur Cyan */
-    border-radius: 5px;
-    
-    /* Transition pour l'animation visuelle */
-    transition: width 1.5s ease-out; 
-}
-
-/* Effet de "saut" au survol */
 
 .skill-item:hover {
-    transform: translateY(-10px); 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .skill-item i {
-    /* 💥 Augmenter la taille des icônes */
-    font-size: 4.5em; 
-    margin-bottom: 20px;
+    font-size: 2.8em;
     transition: opacity 0.3s ease;
 }
 
 .skill-item:hover i {
-    opacity: 0.8; /* Légère atténuation au survol */
+    opacity: 0.8;
 }
 
 .skill-item span {
@@ -307,150 +317,166 @@ h2, h3 {
     color: var(--color-secondary);
 }
 
+/* --- Anneau de progression --- */
+.skill-ring {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: conic-gradient(var(--color-primary) calc(var(--pct) * 1%), #eee 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 1.2s ease-out;
+}
+
+.skill-ring::before {
+    content: attr(data-pct) "%";
+    background: var(--color-white);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95em;
+    color: var(--color-secondary);
+}
+
 /* --- Couleurs Officielles des Technologies --- */
-
-.fa-html5 { color: #e34c26; } /* Orange */
-.fa-css3-alt { color: #264de4; } /* Bleu */
-.fa-js { color: #f7df1e; } /* Jaune */
-.fa-react { color: #61dafb; } /* Bleu Ciel */
-.fa-vuejs { color: #4fc08d; } /* Vert Vue */
-.fa-node-js { color: #68a063; } /* Vert Node */
-.fa-python { color: #3776ab; } /* Bleu Python */
-.fa-php { color: #777bb4; } /* Violet PHP */
-.fa-git-alt { color: #f1502f; } /* Git Orange */
-.fa-docker { color: #2496ed; } /* Bleu Docker */
-.fa-database { color: #4479A1; } /* Gris foncé pour les bases de données génériques */
-
+.fa-html5 { color: #e34c26; }
+.fa-css3-alt { color: #264de4; }
+.fa-js { color: #f7df1e; }
+.fa-react { color: #61dafb; }
+.fa-vuejs { color: #4fc08d; }
+.fa-node-js { color: #68a063; }
+.fa-python { color: #3776ab; }
+.fa-php { color: #777bb4; }
+.fa-git-alt { color: #f1502f; }
+.fa-docker { color: #2496ed; }
+.fa-database { color: #4479A1; }
 
 /* ========================================= */
 /* 6. PROJETS ET RÉALISATIONS               */
 /* ========================================= */
 .projets {
-    background-color: var(--color-background);
+    background-color: var(--color-light-gray);
+    background-image: radial-gradient(circle, #e4e9ed 1px, transparent 1px);
+    background-size: 24px 24px;
+    clip-path: polygon(0 3%, 100% 0, 100% 100%, 0 97%);
+    padding: 100px 0 110px;
+    margin: -30px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
 }
 
 .project-card {
+    background-color: var(--color-white);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
     display: flex;
-    align-items: center; /* Centrer verticalement le contenu et le logo */
-    gap: 40px; 
-    
-    background-color: var(--color-white); 
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    min-height: 250px;
-    
-    /* 💥 MODIFICATION CLÉ : Inverser l'ordre des éléments Flexbox */
-    flex-direction: row-reverse; /* Met le logo à droite, le texte à gauche */
+    flex-direction: column;
 }
-
 
 .project-card:hover {
-    transform: translateY(-8px); /* Fait "sauter" la carte un peu plus haut */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Ombre plus intense au survol */
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
 }
 
-.project-details {
-    width: 60%; /* Le texte prend 60% de la largeur */
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: var(--color-light-gray);
+    overflow: hidden;
+}
 
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.08);
+}
+
+.project-status {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: #2ecc71;
+    color: white;
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.project-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .project-card h4 {
     color: var(--color-secondary);
-    font-size: 1.5em;
+    font-size: 1.4em;
     margin-bottom: 10px;
-    
-    border-left: 4px solid var(--color-primary); /* Ligne Cyan à gauche */
+    border-left: 4px solid var(--color-primary);
     padding-left: 10px;
 }
 
 .project-card .technologies {
     margin: 15px 0;
-    /* Utilisation des technologies pour la liste */
-    font-style: normal;
     font-size: 0.9em;
-    color: var(--color-secondary);
 }
 
 .project-card .technologies span {
     display: inline-block;
-    background-color: var(--color-light-gray); /* Fond de badge */
-    color: #555;
     padding: 4px 10px;
-    border-radius: 3px;
-    margin-right: 8px;
-    margin-bottom: 5px;
-    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    font-weight: 500;
+    border: 1px solid transparent;
 }
+
+.project-card .technologies span:nth-of-type(1) { background-color: #fdeee0; color: #e67e22; border-color: #f5cba7; }
+.project-card .technologies span:nth-of-type(2) { background-color: #eaf2f8; color: #2980b9; border-color: #aed6f1; }
+.project-card .technologies span:nth-of-type(3) { background-color: #fef9e7; color: #b7950b; border-color: #f9e79f; }
+.project-card .technologies span:nth-of-type(4) { background-color: #eafaf1; color: #1e8449; border-color: #a9dfbf; }
 
 .project-link {
     display: inline-block;
-    /* Transformation en boutons discrets */
-    background-color: var(--color-primary); 
+    align-self: flex-start;
+    margin-top: auto;
+    background-color: var(--color-primary);
     color: var(--color-white);
-    padding: 8px 15px;
-    border-radius: 5px;
-    
+    padding: 10px 20px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 500;
-    margin-right: 15px;
-    margin-top: 10px; /* Ajoute un petit espace */
     transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .project-link:hover {
-    /* Assombrir le fond au survol */
-    background-color: #0097a7; 
-    color: var(--color-white); 
-    transform: translateY(-2px); /* Léger soulèvement au survol */
+    background-color: #0097a7;
+    transform: translateY(-2px);
 }
-/*  Le Cercle du Logo du Projet */
-.project-logo-circle {
-    width: 150px; 
-    height: 150px;
-    flex-shrink: 0; 
-    
-    background-color: var(--color-primary); 
-    border-radius: 50%; 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
-    
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    
-    padding: 0px; /* padding est à 0 pour laisser l'image s'exprimer */
-    overflow: hidden; /* S'assure que ce qui dépasse est caché, si le scale n'est pas parfait */
-    transition: transform 0.3s ease;
-}
-
-.project-logo-circle:hover {
-    transform: scale(1.05); /* Zoom léger au survol */
-}
-
-.project-logo-circle img {
-    /*  Permettre à l'image de prendre 100% */
-    width: 100%; 
-    height: 100%;
-    
-    /* 'contain' solution pour éviter la déformation */
-    object-fit: contain; 
-    object-position: center; 
-    display: block;
-    transform: scale(1.2); 
-    transition: transform 0.3s ease; 
-}
-
-/* Effet au survol pour le logo */
-.project-logo-circle:hover img {
-    transform: scale(1.2); /* Revient à 100% de taille au survol */
-}
-.logo-portfolio-fix {
-    /* Réduit l'échelle pour éviter l'étirement */
-    transform: scale(0.9); 
-}
-
 /* ========================================= */
 /* 7. PIED DE PAGE (CONTACT)                */
 /* ========================================= */
@@ -550,20 +576,19 @@ h2, h3 {
 /* 8. MÉDIA QUERIES (RESPONSIVE)            */
 /* ========================================= */
 
-    @media (max-width: 768px) {
-    /* Afficher le burger et masquer les liens par défaut */
+@media (max-width: 768px) {
     .burger-menu {
-        display: block; /* Affiche le bouton burger */
+        display: block;
     }
 
     .nav-links {
-        display: none; /* Masque la liste de liens par défaut */
+        display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 60px; /* Commence sous la navbar fixe */
+        top: 60px;
         left: 0;
-        background-color: var(--color-secondary); /* Fond noir comme la navbar */
+        background-color: var(--color-secondary);
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     }
 
@@ -571,71 +596,35 @@ h2, h3 {
         margin: 0;
         text-align: center;
         padding: 15px 0;
-        border-bottom: 1px solid #333; /* Séparateur subtil */
+        border-bottom: 1px solid #333;
     }
 
     .nav-links li:last-child {
         border-bottom: none;
     }
 
-    /* Classe JavaScript pour afficher le menu */
     .nav-links.active {
-        display: flex; /* Affiche le menu lorsque la classe 'active' est ajoutée */
+        display: flex;
     }
 
-    /* Réaligner le contenu de la nav pour laisser de la place au burger */
     .nav-content {
-        justify-content: space-between; 
-    }
-    .profile-image-container {
-        /* 💥 Réduire sur mobile pour ne pas prendre trop de place */
-        width: 160px; 
-        height: 160px;
-        margin-top: 20px;
-    }
-    
-    .project-card {
-        flex-direction: column; /* Les éléments s'empilent sur mobile */
-    }
-    /* Ajuster l'ordre pour mobile si le logo doit être au-dessus */
-    .project-logo-circle {
-        order: -1; /* Place le logo au-dessus du texte sur mobile */
-        margin-bottom: 20px; /* Espace sous le logo */
-        width: 120px; /* Plus petit sur mobile */
-        height: 120px;
-    }
-    .hero {
-        padding: 100px 20px;
-    }
-
-    .hero h1 {
-        font-size: 2.5em;
+        justify-content: space-between;
     }
 
     h2, h3 {
         font-size: 2em;
     }
-    
-    .project-card {
-        flex-direction: column; /* Empile l'image et le texte sur mobile */
-    }
-
-    .project-image-placeholder, .project-details {
-        width: 100%;
-        min-width: initial;
-    }
 
     .skill-item {
-        /* Revenir à une colonne unique sur mobile */
-        width: 80%; /* Prend 80% de la largeur du viewport */
+        width: 80%;
         height: 200px;
         padding: 20px;
     }
 
     .skills-grid {
-        gap: 30px 0; /* Pas d'espace horizontal */
+        gap: 30px 0;
     }
-    
+
     .skill-item i {
         font-size: 3.5em;
     }
@@ -662,7 +651,9 @@ h2, h3 {
 /* 10. PROCESSUS DE TRAVAIL                 */
 /* ========================================= */
 .workflow {
-    background-color: var(--color-background);
+    background-color: #fdfdfe;
+    position: relative;
+    z-index: 0;
 }
 
 .workflow-intro {
@@ -675,19 +666,34 @@ h2, h3 {
 
 .workflow-steps {
     display: flex;
-    flex-wrap: wrap; /* Permet aux étapes de passer à la ligne */
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 30px;
-    margin-top: 40px;
+    position: relative;
+    margin-top: 70px;
+}
+
+.workflow-steps::before {
+    content: "";
+    position: absolute;
+    top: 50px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--color-primary) 0 8px, transparent 8px 16px);
+    z-index: 0;
 }
 
 .workflow-step-item {
-    background-color: var(--color-light-gray);
+    position: relative;
+    z-index: 1;
+    background-color: var(--color-white);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     text-align: center;
-    max-width: 250px;
+    flex: 1 1 180px;
+    max-width: 220px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -697,39 +703,39 @@ h2, h3 {
 }
 
 .workflow-step-item .workflow-icon-img {
-    width: 100px; /* Augmenter légèrement la taille pour un meilleur effet */
-    height: 100px; /* Doit être égale à la largeur pour un cercle parfait */
-    
-    object-fit: cover; /* Recadre l'image pour remplir le cercle sans déformation */
-    object-position: center; /* S'assure que le centre de l'image est visible */
-    
-    border-radius: 50%; /* 💥 REND L'IMAGE RONDE */
-    border: 3px solid var(--color-primary); /* Ajouter une petite bordure Cyan */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Ombre pour donner du relief */
-    
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 3px solid var(--color-primary);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
 .workflow-step-item h4 {
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: var(--color-secondary);
     margin-bottom: 15px;
 }
 
 .workflow-step-item p {
-    font-size: 0.95em;
+    font-size: 0.9em;
     color: #555;
 }
 
-/* Responsive pour les étapes de travail */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    .workflow-steps::before {
+        display: none; /* la ligne pointillée disparaît, pas de bon rendu vertical */
+    }
+
     .workflow-steps {
         flex-direction: column;
         align-items: center;
     }
 
     .workflow-step-item {
-        max-width: 90%; /* Pour qu'elles prennent plus de place sur mobile */
+        max-width: 90%;
     }
 }
 
@@ -791,3 +797,4 @@ h2, h3 {
     50% { transform: translateY(-20px); }
     100% { transform: translateY(0px); }
 }
+
