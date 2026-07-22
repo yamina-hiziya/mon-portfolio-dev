@@ -2,12 +2,3 @@
 .DS_Store
 .vscode/
 
-# IGNORER TOUTES LES IMAGES DANS LE DOSSIER 'images'
-# Si votre dossier est 'image' (singulier)
-image/*
-# Si votre dossier est 'images' (pluriel)
-images/*
-
-# Alternativement, ignorer tous les PNG et JPG, quel que soit leur emplacement
-# *.png
-# *.jpg
