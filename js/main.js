@@ -47,8 +47,9 @@ document.querySelectorAll('.fade-in-section').forEach(section => {
 document.addEventListener('DOMContentLoaded', () => {
     const burgerButton = document.querySelector('.burger-menu');
     const navLinks = document.getElementById('navLinks');
-    const links = navLinks.querySelectorAll('a');
 
+    if (burgerButton && navLinks) {
+        const links = navLinks.querySelectorAll('a');
     // 1. Gérer le clic sur le bouton burger
     burgerButton.addEventListener('click', () => {
         navLinks.classList.toggle('active');
@@ -62,4 +63,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+}
 });
